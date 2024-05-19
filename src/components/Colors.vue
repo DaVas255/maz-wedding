@@ -21,10 +21,10 @@
   background-image: url('./../assets/img/branch.png');
   background-position: right;
   background-repeat: no-repeat;
+  margin-bottom: 7rem;
 
   &__content {
-    max-width: 28rem;
-    margin: 0 auto 7.9rem auto;
+    padding: 0 4rem;
   }
 
   &__title {

@@ -15,11 +15,11 @@
 
 <style lang="scss">
 .place {
-  max-width: 28rem;
-  margin: 0 auto 9.2rem auto;
+  width: 100%;
+  padding: 0 4rem;
 
   &__title {
-    margin-bottom: 1.7rem;
+    margin-bottom: 1rem;
   }
 
   &__text {

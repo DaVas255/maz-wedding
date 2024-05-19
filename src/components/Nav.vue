@@ -16,5 +16,9 @@
 
   font-size: 1rem;
   color: var(--main-color);
+
+  a {
+    text-decoration: none;
+  }
 }
 </style>

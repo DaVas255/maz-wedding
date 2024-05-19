@@ -94,7 +94,7 @@ import Firework from './icons/Firework.vue'
 
 <style lang="scss">
 .program {
-  padding: 0 2.1rem 0 3.6rem;
+  padding: 0 3.5rem;
   margin-bottom: 7.8rem;
 
   font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -107,6 +107,7 @@ import Firework from './icons/Firework.vue'
 
   &__camera {
     margin-right: 1.9rem;
+    margin-top: 0.4rem;
   }
 
   &__camera-icon {

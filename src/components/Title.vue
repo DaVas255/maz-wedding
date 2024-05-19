@@ -19,8 +19,11 @@
 .title {
   display: flex;
   flex-direction: column;
-  row-gap: 3.6rem;
-  padding: 0 4.1rem 0 3.9rem;
+  padding: 0 4rem;
   margin-bottom: 7rem;
+
+  &__text {
+    margin-top: 2rem;
+  }
 }
 </style>

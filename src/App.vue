@@ -18,8 +18,10 @@ import Footer from './components/Footer.vue'
     <main>
       <Nav />
       <Title />
-      <Date />
-      <Place />
+      <div class="main__date">
+        <Date />
+        <Place />
+      </div>
       <Program />
       <Tables />
       <Colors />
@@ -34,4 +36,19 @@ import Footer from './components/Footer.vue'
 @import './assets/styles/index';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.main__date {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8rem;
+  margin-bottom: 9rem;
+
+  @media screen and (max-width: 580px) {
+    flex-direction: column;
+    row-gap: 7rem;
+    margin-left: 0rem;
+  }
+}
 </style>

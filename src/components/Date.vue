@@ -15,8 +15,7 @@ import Heart from './icons/Heart.vue'
 
 <style lang="scss">
 .date {
-  max-width: 28rem;
-  margin: 0 auto 7.4rem auto;
+  padding: 0 4rem;
 
   &__title {
     margin-bottom: 1.5rem;
@@ -24,14 +23,12 @@ import Heart from './icons/Heart.vue'
 
   &__content {
     position: relative;
-    display: flex;
-    justify-content: center;
   }
 
   &__heart {
     position: absolute;
     top: 18.1rem;
-    left: 17.3rem;
+    right: 6.7rem;
   }
 }
 </style>

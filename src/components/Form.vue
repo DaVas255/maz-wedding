@@ -11,8 +11,8 @@
 
 <style lang="scss">
 .form {
-  max-width: 28rem;
-  margin: 0 auto 7.9rem auto;
+  padding: 0 4rem;
+  margin-bottom: 7rem;
 
   &__title {
     margin-bottom: 1rem;

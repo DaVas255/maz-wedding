@@ -10,8 +10,8 @@
 
 <style lang="scss">
 .test {
-  max-width: 28rem;
-  margin: 0 auto 7.9rem auto;
+  margin-bottom: 7rem;
+  padding: 0 4rem;
 
   &__title {
     margin-bottom: 1rem;

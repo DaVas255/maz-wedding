@@ -1,6 +1,4 @@
-<script>
-import Calendar from './icons/Calendar.vue'
-</script>
+<script setup></script>
 
 <template>
   <footer class="footer">
@@ -12,15 +10,20 @@ import Calendar from './icons/Calendar.vue'
       <p>Ведь вместе – лучше!</p>
     </div>
 
-    <div class="footer__photo"></div>
+    <div class="footer__photo">
+      <!-- <img src="./../assets/img/photo1.png" alt="" />
+      <img src="./../assets/img/photo2.png" alt="" />
+      <img src="./../assets/img/photo3.png" alt="" />
+      <img src="./../assets/img/photo4.png" alt="" /> -->
+    </div>
   </footer>
 </template>
 
 <style scoped lang="scss">
 .footer {
   &__content {
-    max-width: 28rem;
-    margin: 0 auto 7.9rem auto;
+    padding: 0 4rem;
+    margin-bottom: 7rem;
   }
 
   &__text {
