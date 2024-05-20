@@ -1,12 +1,16 @@
+<script setup>
+import Animate from './Animate.vue'
+</script>
+
 <template>
-  <div class="form" id="form">
+  <Animate animationClass="animate__fadeInUp" class="form" id="form">
     <h2 class="form__title">Анкета</h2>
     <p class="form__text">
       Для того чтобы по максимуму учесть ваши вкусы и предпочтения в еде и напитках, предлагаем
       пройти короткий опрос. Это поможет нам организовать такое мероприятие, на котором вам будет
       уютно, кайфово и весело. Опрос займет не более 5 минут.
     </p>
-  </div>
+  </Animate>
 </template>
 
 <style lang="scss">

@@ -1,5 +1,9 @@
+<script setup>
+import Animate from './Animate.vue'
+</script>
+
 <template>
-  <div class="title">
+  <Animate animationClass="animate__fadeInUp" class="title">
     Привет!
     <p class="title__text">
       Четыре года мы ходили мимо друг друга по коридорам ТУСУРа, ограничиваясь общением на
@@ -12,7 +16,7 @@
     <p class="title__text">
       Будет много улыбок, нежности, веселья, а еще – вкуснейший ужин в изысканном ресторане 😋
     </p>
-  </div>
+  </Animate>
 </template>
 
 <style lang="scss">

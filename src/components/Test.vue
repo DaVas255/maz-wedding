@@ -1,11 +1,15 @@
+<script setup>
+import Animate from './Animate.vue'
+</script>
+
 <template>
-  <div class="test">
+  <Animate animationClass="animate__fadeInUp" class="test">
     <h2 class="test__title">Тест <span class="accent-text-main-color">Какой ты гость?</span></h2>
     <p>
       Шуточный тест о том, насколько хорошо вы нас знаете. Не бойтесь, он не проверяет знания, и
       оценки за него не ставятся. Это просто развлечение, которое поможет узнать нас чуть лучше 🙂
     </p>
-  </div>
+  </Animate>
 </template>
 
 <style lang="scss">

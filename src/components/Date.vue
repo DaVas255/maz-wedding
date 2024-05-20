@@ -1,16 +1,17 @@
 <script setup>
 import Calendar from './icons/Calendar.vue'
 import Heart from './icons/Heart.vue'
+import Animate from './Animate.vue'
 </script>
 
 <template>
-  <div class="date" id="date">
+  <Animate animationClass="animate__fadeInUp" class="date" id="date">
     <h2 class="date__title">Дата</h2>
     <div class="date__content">
       <Calendar />
       <Heart class="date__heart" />
     </div>
-  </div>
+  </Animate>
 </template>
 
 <style lang="scss">

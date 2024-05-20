@@ -1,5 +1,9 @@
+<script setup>
+import Animate from './Animate.vue'
+</script>
+
 <template>
-  <div class="colors" id="color">
+  <Animate animationClass="animate__fadeInUp" class="colors" id="color">
     <div class="colors__content">
       <h2 class="colors__title">Цветовая палитра</h2>
       <p class="colors__text">
@@ -13,7 +17,7 @@
         признательны, если белое платье будет только у невесты.
       </p>
     </div>
-  </div>
+  </Animate>
 </template>
 
 <style lang="scss">

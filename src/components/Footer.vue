@@ -1,22 +1,26 @@
-<script setup></script>
+<script setup>
+import Animate from './Animate.vue'
+</script>
 
 <template>
-  <footer class="footer">
-    <div class="footer__content">
-      <p class="footer__text">
-        Нам важно провести этот день с близкими, и мы будем счастливы видеть вас на своем празднике,
-        слышать теплые слова, танцевать и радоваться вместе с вами.
-      </p>
-      <p>Ведь вместе – лучше!</p>
-    </div>
+  <Animate animationClass="animate__fadeInUp" class="footer">
+    <footer>
+      <div class="footer__content">
+        <p class="footer__text">
+          Нам важно провести этот день с близкими, и мы будем счастливы видеть вас на своем
+          празднике, слышать теплые слова, танцевать и радоваться вместе с вами.
+        </p>
+        <p>Ведь вместе – лучше!</p>
+      </div>
 
-    <div class="footer__photo">
-      <!-- <img src="./../assets/img/photo1.png" alt="" />
+      <div class="footer__photo">
+        <!-- <img src="./../assets/img/photo1.png" alt="" />
       <img src="./../assets/img/photo2.png" alt="" />
       <img src="./../assets/img/photo3.png" alt="" />
       <img src="./../assets/img/photo4.png" alt="" /> -->
-    </div>
-  </footer>
+      </div>
+    </footer>
+  </Animate>
 </template>
 
 <style scoped lang="scss">

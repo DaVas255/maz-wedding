@@ -1,5 +1,9 @@
+<script setup>
+import Animate from './Animate.vue'
+</script>
+
 <template>
-  <div class="tables" id="table">
+  <Animate animationClass="animate__fadeInUp" class="tables" id="table">
     <h2 class="tables__title">Ваш столик</h2>
     <p class="tables__text">
       Для каждого гостя предусмотрено конкретное место, чтобы вы чувствовали себя комфортно в
@@ -8,7 +12,7 @@
     <p class="tables__text">
       Найдите и кликните на свое имя в списке ниже, чтобы узнать номер своего столика.
     </p>
-  </div>
+  </Animate>
 </template>
 <style lang="scss">
 .tables {

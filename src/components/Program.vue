@@ -4,11 +4,12 @@ import Canape from './icons/Canape.vue'
 import WifeHusband from './icons/WifeHusband.vue'
 import Cake from './icons/Cake.vue'
 import Firework from './icons/Firework.vue'
+import Animate from './Animate.vue'
 </script>
 
 <template>
   <div class="program">
-    <div class="program__item">
+    <Animate animationClass="animate__fadeInUp" class="program__item">
       <div class="program__camera">
         <Camera class="program__camera-icon" />
         <div class="program__line"></div>
@@ -27,9 +28,9 @@ import Firework from './icons/Firework.vue'
           а потом пойдем в ресторан – он находится в 3-х минутах ходьбы
         </p>
       </div>
-    </div>
+    </Animate>
 
-    <div class="program__item">
+    <Animate animationClass="animate__fadeInUp" class="program__item">
       <div class="program__canape">
         <Canape class="program__canape-icon" />
         <div class="program__line"></div>
@@ -44,9 +45,9 @@ import Firework from './icons/Firework.vue'
           пообщаться с гостями и где ведущий расскажет основные правила
         </p>
       </div>
-    </div>
+    </Animate>
 
-    <div class="program__item">
+    <Animate animationClass="animate__fadeInUp" class="program__item">
       <div class="program__family">
         <WifeHusband class="program__family-icon" />
         <div class="program__line"></div>
@@ -59,9 +60,9 @@ import Firework from './icons/Firework.vue'
           опоздать и не упустить ценную информацию от ведущего
         </p>
       </div>
-    </div>
+    </Animate>
 
-    <div class="program__item">
+    <Animate animationClass="animate__fadeInUp" class="program__item">
       <div class="program__cake">
         <Cake class="program__cake-icon" />
         <div class="program__line"></div>
@@ -74,9 +75,9 @@ import Firework from './icons/Firework.vue'
           отложился на талии, го танцевать!
         </p>
       </div>
-    </div>
+    </Animate>
 
-    <div class="program__item">
+    <Animate animationClass="animate__fadeInUp" class="program__item">
       <div class="program__firework">
         <Firework class="program__firework-icon" />
       </div>
@@ -88,7 +89,7 @@ import Firework from './icons/Firework.vue'
           самые теплые воспоминания о нашем празднике!
         </p>
       </div>
-    </div>
+    </Animate>
   </div>
 </template>
 

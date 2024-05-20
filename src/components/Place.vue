@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import Animate from './Animate.vue'
+</script>
 
 <template>
-  <div class="place" id="place">
+  <Animate animationClass="animate__fadeInUp" class="place" id="place">
     <h2 class="place__title">Место</h2>
     <p class="place__text">
       Ресторан «Кухтерин» <br />
@@ -10,7 +12,7 @@
     <div class="place__map">
       <a href="#" class="place__map-link">Смотреть на карте</a>
     </div>
-  </div>
+  </Animate>
 </template>
 
 <style lang="scss">
