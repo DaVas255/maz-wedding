@@ -118,7 +118,7 @@ import Animate from './Animate.vue'
   &__line {
     height: 90%;
     margin: 0 auto 0 auto;
-    background-color: var(--main-color);
+    border-left: 1px solid var(--main-color);
     width: 0.01rem;
   }
 
