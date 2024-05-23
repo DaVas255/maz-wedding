@@ -18,7 +18,7 @@ import Animate from './Animate.vue'
 <style lang="scss">
 .date {
   padding: 0 4rem;
-  margin-top: -7rem;
+  margin-top: -4rem;
 
   &__title {
     margin-bottom: 1.5rem;
