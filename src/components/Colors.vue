@@ -3,7 +3,8 @@ import Animate from './Animate.vue'
 </script>
 
 <template>
-  <Animate animationClass="animate__fadeInUp" class="colors" id="color">
+  <div id="color" class="offset-anchor__color"></div>
+  <Animate animationClass="animate__fadeInUp" class="colors">
     <div class="colors__content">
       <h2 class="colors__title">Цветовая палитра</h2>
       <p class="colors__text">

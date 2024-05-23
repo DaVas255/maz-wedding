@@ -3,7 +3,8 @@ import Animate from './Animate.vue'
 </script>
 
 <template>
-  <Animate animationClass="animate__fadeInUp" class="tables" id="table">
+  <div id="table" class="offset-anchor__tables"></div>
+  <Animate animationClass="animate__fadeInUp" class="tables">
     <h2 class="tables__title">Ваш столик</h2>
     <p class="tables__text">
       Для каждого гостя предусмотрено конкретное место, чтобы вы чувствовали себя комфортно в

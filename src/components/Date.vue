@@ -5,7 +5,8 @@ import Animate from './Animate.vue'
 </script>
 
 <template>
-  <Animate animationClass="animate__fadeInUp" class="date" id="date">
+  <div id="date" class="offset-anchor"></div>
+  <Animate animationClass="animate__fadeInUp" class="date">
     <h2 class="date__title">Дата</h2>
     <div class="date__content">
       <Calendar />
@@ -17,6 +18,7 @@ import Animate from './Animate.vue'
 <style lang="scss">
 .date {
   padding: 0 4rem;
+  margin-top: -7rem;
 
   &__title {
     margin-bottom: 1.5rem;

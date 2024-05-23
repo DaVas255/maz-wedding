@@ -3,6 +3,7 @@ import Animate from './Animate.vue'
 </script>
 
 <template>
+  <div id="place" class="offset-anchor"></div>
   <Animate animationClass="animate__fadeInUp" class="place" id="place">
     <h2 class="place__title">Место</h2>
     <p class="place__text">
@@ -19,6 +20,7 @@ import Animate from './Animate.vue'
 .place {
   width: 100%;
   padding: 0 4rem;
+  margin-top: -7rem;
 
   &__title {
     margin-bottom: 1rem;

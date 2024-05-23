@@ -3,7 +3,8 @@ import Animate from './Animate.vue'
 </script>
 
 <template>
-  <Animate animationClass="animate__fadeInUp" class="form" id="form">
+  <div id="form" class="offset-anchor__form"></div>
+  <Animate animationClass="animate__fadeInUp" class="form">
     <h2 class="form__title">Анкета</h2>
     <p class="form__text">
       Для того чтобы по максимуму учесть ваши вкусы и предпочтения в еде и напитках, предлагаем

@@ -40,3 +40,31 @@ h2 {
 .accent-text-main-color {
   color: var(--main-color);
 }
+
+.offset-anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
+.offset-anchor__tables {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
+.offset-anchor__color {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
+
+.offset-anchor__form {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}

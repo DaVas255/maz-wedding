@@ -13,11 +13,10 @@ import Animate from './Animate.vue'
         <p>Ведь вместе – лучше!</p>
       </div>
 
-      <div class="footer__photo">
-        <!-- <img src="./../assets/img/photo1.png" alt="" />
-      <img src="./../assets/img/photo2.png" alt="" />
-      <img src="./../assets/img/photo3.png" alt="" />
-      <img src="./../assets/img/photo4.png" alt="" /> -->
+      <div class="footer__photos">
+        <img src="./../assets/img/photo1.jpg" alt="" class="footer__photo" />
+        <img src="./../assets/img/photo2.jpg" alt="" class="footer__photo" />
+        <img src="./../assets/img/photo3.jpg" alt="" class="footer__photo" />
       </div>
     </footer>
   </Animate>
@@ -34,9 +33,32 @@ import Animate from './Animate.vue'
     margin-bottom: 1.2rem;
   }
 
-  &__photo {
+  &__photos {
+    height: 14rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  &__photo {
+    height: 100%;
+    object-fit: contain;
+
+    @media screen and (max-width: 500px) {
+      object-fit: cover;
+    }
+
+    &:nth-child(1) {
+      width: 24%;
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+    }
+
+    &:nth-child(3) {
+      width: 24%;
+    }
   }
 }
 </style>
