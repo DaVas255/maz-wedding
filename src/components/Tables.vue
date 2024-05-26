@@ -20,7 +20,7 @@ import Animate from './Animate.vue'
   display: flex;
   flex-direction: column;
   padding: 0 4rem;
-  margin-bottom: 7rem;
+  margin-bottom: 6.5rem;
 
   &__title {
     margin-bottom: 1rem;

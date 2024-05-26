@@ -95,7 +95,7 @@ import Animate from './Animate.vue'
 <style lang="scss">
 .program {
   padding: 0 3.5rem;
-  margin-bottom: 7.8rem;
+  margin-bottom: 8rem;
 
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 1.3rem;

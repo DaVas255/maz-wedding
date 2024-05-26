@@ -26,7 +26,7 @@ import Animate from './Animate.vue'
   background-image: url('./../assets/img/branch.png');
   background-position: right;
   background-repeat: no-repeat;
-  margin-bottom: 7rem;
+  margin-bottom: 8rem;
 
   &__content {
     padding: 0 4rem;

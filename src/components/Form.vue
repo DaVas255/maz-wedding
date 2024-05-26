@@ -21,7 +21,7 @@ import Animate from './Animate.vue'
 <style lang="scss">
 .form {
   padding: 0 4rem;
-  margin-bottom: 7rem;
+  margin-bottom: 8rem;
 
   &__title {
     margin-bottom: 1rem;

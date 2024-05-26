@@ -14,7 +14,7 @@ import Animate from './Animate.vue'
 
 <style lang="scss">
 .test {
-  margin-bottom: 7rem;
+  margin-bottom: 8rem;
   padding: 0 4rem;
 
   &__title {
