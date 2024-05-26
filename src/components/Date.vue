@@ -10,7 +10,6 @@ import Animate from './Animate.vue'
     <h2 class="date__title">Дата</h2>
     <div class="date__content">
       <Calendar />
-      <Heart class="date__heart" />
     </div>
   </Animate>
 </template>
