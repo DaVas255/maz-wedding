@@ -25,6 +25,9 @@ import Animate from './Animate.vue'
 
   &__content {
     position: relative;
+    @media screen and (min-width: 580px) {
+      margin-left: 2rem;
+    }
   }
 
   &__heart {

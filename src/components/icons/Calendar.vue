@@ -5,7 +5,6 @@
 </script>
 <style>
 #calendar_img {
-  margin-left: 5px;
   width: 400px;
 }
 </style>
