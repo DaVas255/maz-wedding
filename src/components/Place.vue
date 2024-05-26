@@ -11,7 +11,7 @@ import Animate from './Animate.vue'
       (г. Томск, пер. Нахановича, 9)
     </p>
     <div class="place__map">
-      <a href="#" class="place__map-link">Смотреть на карте</a>
+      <a href="https://go.2gis.com/nrjna2 " target="_blank" class="place__map-link">Смотреть на карте</a>
     </div>
   </Animate>
 </template>
