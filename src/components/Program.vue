@@ -18,7 +18,7 @@ import Animate from './Animate.vue'
         <h2 class="program__time">15.00</h2>
         <p class="program__text">
           <span class="accent-text-bold">Фотопрогулка. Театральный сквер</span><br />
-          Если вы хотите сфотографироваться с нами, подходите
+          Если вы хотите сфотографироваться с&nbsp;нами, подходите
           к&nbsp;<a target="_blank"
                     href="https://2gis.ru/tomsk/geo/70030076184912166?m=84.947942%2C56.483265%2F18.93"
                     class="accent-text-main-color"
