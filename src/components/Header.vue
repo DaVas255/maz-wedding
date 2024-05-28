@@ -18,6 +18,10 @@ import Animate from './Animate.vue'
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @media screen and (max-width: 400px) {
+      object-position: 0px -65px;
+    }
   }
 }
 </style>

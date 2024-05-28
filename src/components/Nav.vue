@@ -32,7 +32,7 @@ onUnmounted(() => {
         <a href="#table" :style="{ color: scrolledPastHeader ? 'white' : '#8AAF7A' }">Ваш столик</a>
         |
         <a href="#color" :style="{ color: scrolledPastHeader ? 'white' : '#8AAF7A' }"
-        >Цветовая палитра</a
+          >Цветовая палитра</a
         >
         |
         <a href="#form" :style="{ color: scrolledPastHeader ? 'white' : '#8AAF7A' }">Анкета</a>
@@ -64,7 +64,7 @@ onUnmounted(() => {
     width: 100%;
     column-gap: 3rem;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
   }
 
   &__text {
