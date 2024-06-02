@@ -128,8 +128,6 @@ export default {
 
 <style scoped lang="scss">
 .quiz {
-  padding: 0 10%;
-
   &__introduction {
     text-align: center;
 
@@ -225,8 +223,8 @@ export default {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: $size / 2;
-      height: $size / 2;
+      width: calc($size / 2);
+      height: calc($size / 2);
       border-radius: 50%;
       background-color: #8aaf7a;
       transform: translate(-50%, -50%);
@@ -252,6 +250,7 @@ export default {
 
     &__img {
       max-width: 300px;
+      width: 100%;
       margin: 0 auto;
     }
 
