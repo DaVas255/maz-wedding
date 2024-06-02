@@ -16,6 +16,7 @@ export default {
       the_end: false,
       answers: [],
       user_answer: -1,
+      user_text_answer: '',
       grade: 0,
       grade_title: '',
       Processed: false,
@@ -27,10 +28,20 @@ export default {
       this.is_start = true
     },
     answer() {
-      this.feedback = Questions[this.state].answers[this.user_answer].feedback
-      if (Questions[this.state].answers[this.user_answer].is_true) {
-        this.grade++
+      if (Questions[this.state].type === 'Radio') {
+        this.feedback = Questions[this.state].answers[this.user_answer].feedback
+        if (Questions[this.state].answers[this.user_answer].is_true) {
+          this.grade++
+        }
+      } else {
+        if (Questions[this.state].answers.includes(this.user_text_answer)) {
+          this.grade++
+          this.feedback = Questions[this.state].feedback.true
+        } else {
+          this.feedback = Questions[this.state].feedback.false
+        }
       }
+
     },
     next() {
       if ((this.state + 1) < Questions.length) {
@@ -38,6 +49,7 @@ export default {
         this.feedback = false
         this.Processed = false
         this.user_answer = -1
+        this.user_text_answer = ''
       } else {
         this.the_end = true
         this.is_start = false
@@ -90,13 +102,20 @@ export default {
         <div class="quiz__state"><span>{{ (state + 1) }}</span><span>/</span><span>{{ Questions.length }}</span></div>
         <div class="quiz__text">{{ Questions[this.state].text }}</div>
         <div class="quiz__answers">
-          <div class="quiz__answer" v-for="(answer, index) in Questions[this.state].answers">
+          <div v-if="Questions[state].type === 'Radio'" class="quiz__answer"
+               v-for="(answer, index) in Questions[this.state].answers">
             <label>
               <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="this.Processed">
               {{ answer.text }}
             </label>
             <div class="quiz__answer__feedback" v-if="this.user_answer === index && feedback">
               {{ answer.feedback }}
+            </div>
+          </div>
+          <div v-if="Questions[state].type === 'Text'" class="quiz__answer">
+            <input type="text" name="answers" v-model="user_text_answer">
+            <div class="quiz__answer__feedback2" v-if="feedback">
+              {{ feedback }}
             </div>
           </div>
         </div>
@@ -112,7 +131,7 @@ export default {
         <div v-if="!is_start && !the_end">
           <button class="quiz-link" @click="start">Начать тест</button>
         </div>
-        <div v-if="!feedback && user_answer !== -1">
+        <div v-if="!feedback && (user_answer !== -1 || user_text_answer)">
           <button class="quiz-link" @click="answer">Ответить</button>
         </div>
         <div v-if="feedback && !the_end">
@@ -181,10 +200,21 @@ export default {
   &__answer {
     padding: 15px 0;
 
-    &__feedback {
-      padding-left: 30px;
+    &__feedback, &__feedback2 {
       opacity: .8;
       font-size: 14px;
+    }
+
+    &__feedback {
+      padding-left: 30px;
+    }
+
+    &__feedback2 {
+    }
+
+    input[type='text'] {
+      border: 1px solid #9c9c9c;
+      height: 40px;
     }
 
     input[type='radio'],
@@ -253,7 +283,6 @@ export default {
       width: 100%;
       margin: 0 auto;
     }
-
   }
 
   &__btn {
