@@ -34,7 +34,7 @@ export default {
           this.grade++
         }
       } else {
-        if (Questions[this.state].answers.includes(this.user_text_answer)) {
+        if (Questions[this.state].answers.includes(this.user_text_answer.trim())) {
           this.grade++
           this.feedback = Questions[this.state].feedback.is_true
         } else {
