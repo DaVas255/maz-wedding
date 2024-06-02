@@ -15,15 +15,14 @@ import Animate from './Animate.vue'
         <div class="program__line"></div>
       </div>
       <div class="program__content">
-        <h2 class="program__time">15.00</h2>
+        <h2 class="program__time">15.30</h2>
         <p class="program__text">
           <span class="accent-text-bold">Фотопрогулка. Театральный сквер</span><br />
           Если вы хотите сфотографироваться с&nbsp;нами, подходите
           к&nbsp;<a target="_blank"
                     href="https://2gis.ru/tomsk/geo/70030076184912166?m=84.947942%2C56.483265%2F18.93"
                     class="accent-text-main-color"
-        >театральному скверу</a>
-          в&nbsp;15.00. Сделаем несколько классных снимков на память,
+        >театральному скверу</a> (рядом&nbsp;с&nbsp;ТЮЗом). Сделаем несколько классных снимков на память,
           а&nbsp;потом пойдем в&nbsp;ресторан – он находится в&nbsp;3&nbsp;минутах ходьбы.
         </p>
       </div>
@@ -52,7 +51,7 @@ import Animate from './Animate.vue'
         <div class="program__line"></div>
       </div>
       <div>
-        <h2 class="program__time">16.30</h2>
+        <h2 class="program__time">17.00</h2>
         <p class="program__text">
           <span class="accent-text-bold">Начало банкета</span><br />
           Банкет начнется в&nbsp;17.00, но просим вас прийти раньше, чтобы не

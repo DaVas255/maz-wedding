@@ -57,7 +57,7 @@ export default {
       в&nbsp;окружении знакомых и&nbsp;близких вам людей.
     </p>
     <p class="tables__text">
-      Найдите и&nbsp;кликните на свое имя в&nbsp;списке ниже, чтобы узнать номер своего столика.
+      Найдите и&nbsp;кликните на свое имя в&nbsp;списке ниже, чтобы увидеть схему рассадки.
     </p>
     <div v-if="!user" class="tables__users">
       <div v-for="(userGroup, index) in users" class="tables__title tables__table_block">
