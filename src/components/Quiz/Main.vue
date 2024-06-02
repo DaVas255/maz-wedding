@@ -33,6 +33,7 @@ export default {
       if ((this.state + 1) < Questions.length) {
         ++this.state
         this.feedback = false
+        this.Processed = false
       } else {
         this.the_end = true
         if (this.grade > 8) {
@@ -49,6 +50,8 @@ export default {
           this.feedback = 'Вы ответили правильно меньше чем на половину вопросов и, возможно, не согласны с результатами. Да лаадно, вы все равно хорошо справились. Мы будем рады видеть вас на нашем празднике!'
         } else {
           this.img = Two
+          this.grade_title = 'Вы – плачущий котик'
+          this.feedback = 'Вам известно о нас совсем немного, но не расстраивайтесь, этот тест сделан как раз для того, чтобы вы узнали нас лучше и познакомились с нашей историей! Мы будем рады видеть вас на празднике.'
         }
       }
     }
@@ -57,44 +60,87 @@ export default {
 </script>
 
 <template>
-  <div class="quiz__wrapper">
-    <div>
-
-      <p>
-        {{ Questions[this.state].text }}
-      </p>
-      <p v-for="(answer, index) in Questions[this.state].answers">
-        <label>
-          <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed">
-          {{ answer.text }}
-          <p v-if="this.user_answer == index && feedback">{{ answer.feedback }}</p>
-        </label>
-      </p>
-
-    </div>
-    <!--    //-->
-    <div v-if="feedback">
-      <div v-if="the_end">
+  <div class="quiz">
+    <div class="quiz__wrapper">
+      <div class="quiz__state"><span>{{ (state + 1) }}</span><span>/</span><span>{{ Questions.length }}</span></div>
+      <div class="quiz__text">{{ Questions[this.state].text }}</div>
+      <div class="quiz__answers">
+        <div class="quiz__answer" v-for="(answer, index) in Questions[this.state].answers">
+          <label>
+            <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed">
+            {{ answer.text }}
+            <div class="quiz__answer__feedback" v-if="this.user_answer === index && feedback">
+              {{ answer.feedback }}
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="quiz__grade" v-if="the_end">
         <img class="quiz__img_grade" :src="img" alt="!">
         <p><b>{{ this.grade }} из {{ Questions.length }}&nbsp;&nbsp;&nbsp;&nbsp;{{ this.grade_title }}</b></p>
       </div>
-      <p><b></b></p>
-      <!--      <p>{{ this.feedback }}</p>-->
-    </div>
-    <div v-if="!feedback && user_answer !== -1" class="form__map">
-      <button class="quiz-link" @click="answer">Ответить</button>
-    </div>
+      <div class="quiz__btn">
+        <div v-if="!feedback && user_answer !== -1" class="form__map">
+          <button class="quiz-link" @click="answer">Ответить</button>
+        </div>
 
-    <div v-if="feedback && !the_end" class="form__map">
-      <button class="quiz-link" @click="next">Далее</button>
+        <div v-if="feedback && !the_end" class="form__map">
+          <button class="quiz-link" @click="next">Далее</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .quiz {
+  padding: 0 10%;
+
   &__wrapper {
-    border: 1px solid black;
+    font-family: 'TildaSans', Arial, sans-serif;
+
+    background-color: #ffffff;
+    border-width: 1px;
+    border-color: #9c9c9c;
+    //border-radius: 30px;
+    padding: 45px 45px 65px;
   }
+
+  &__state {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-align: center;
+
+    span:first-child {
+      opacity: .7;
+    }
+
+    span {
+      opacity: .3;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  &__answers {
+
+  }
+
+  &__answer {
+    padding: 15px 0;
+
+    &__feedback {
+      padding-left: 30px;
+      opacity: .8;
+      font-size: 14px;
+    }
+  }
+
 }
 </style>
