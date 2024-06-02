@@ -60,8 +60,8 @@ export default {
       Найдите и&nbsp;кликните на свое имя в&nbsp;списке ниже, чтобы увидеть схему рассадки.
     </p>
     <div v-if="!user" class="tables__users">
-      <div v-for="(userGroup, index) in users" class="tables__title tables__table_block">
-        <h2>Столик {{ (index + 1) }}</h2>
+      <div v-for="(userGroup, index) in users" class="tables__table_block">
+        <h2 class="tables__table_name">Столик {{ (index + 1) }}</h2>
         <div v-for="item in userGroup">
           <a @click="loadTmp(item)" class="tables__users__user">{{ item }}</a>
         </div>
@@ -109,14 +109,20 @@ export default {
     margin-bottom: 1rem;
   }
 
+  &__table_name {
+    color: #8aaf7a;
+  }
+
   &__users {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    font-size: 14px;
 
     &__user {
       border-bottom: dashed #8aaf7a 1px;
     }
+
     &__user:hover {
       border-bottom: solid #8aaf7a 1px;
       cursor: pointer;
@@ -125,7 +131,15 @@ export default {
 
   &__table_block {
     width: 50%;
-    padding-bottom: 10px;
+    //border-left: #8aaf7a solid 1px;
+    //padding-left: 5px;
+    //padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__table_block:nth-child(2n) {
+    border-left: #8aaf7a solid 1px;
+    padding-left: 10px;
   }
 
   &__text {

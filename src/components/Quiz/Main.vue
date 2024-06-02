@@ -295,7 +295,7 @@ export default {
   }
 
   &__btn {
-    padding-top: 10px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
   }
