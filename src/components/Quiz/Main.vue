@@ -19,7 +19,7 @@ export default {
       grade: 0,
       grade_title: '',
       Processed: false,
-      img: Five
+      img: null
     }
   },
   methods: {
@@ -40,6 +40,7 @@ export default {
         this.user_answer = -1
       } else {
         this.the_end = true
+        this.is_start = false
         if (this.grade > 8) {
           this.img = Five
           this.grade_title = 'Вы – довольный кот'
@@ -58,6 +59,15 @@ export default {
           this.feedback = 'Вам известно о нас совсем немного, но не расстраивайтесь, этот тест сделан как раз для того, чтобы вы узнали нас лучше и познакомились с нашей историей! Мы будем рады видеть вас на празднике.'
         }
       }
+    },
+    reset() {
+      this.is_start = true
+      this.the_end = false
+      this.grade = 0
+      this.state = 0
+      this.feedback = false
+      this.Processed = false
+      this.user_answer = -1
     }
   }
 }
@@ -66,7 +76,7 @@ export default {
 <template>
   <div class="quiz">
     <div class="quiz__wrapper">
-      <div v-if="!is_start" class="quiz__introduction">
+      <div v-if="!is_start && !the_end" class="quiz__introduction">
         <div class="quiz__state"><span></span><span>Тест</span></div>
         <div v-if="!is_start" class="quiz__introduction__title">
           Какой вы гость?
@@ -90,13 +100,16 @@ export default {
             </div>
           </div>
         </div>
-        <div class="quiz__grade" v-if="the_end">
-          <img class="quiz__grade__img" :src="img" alt="!">
-          <p><b>{{ this.grade }} из {{ Questions.length }}&nbsp;&nbsp;&nbsp;&nbsp;{{ this.grade_title }}</b></p>
-        </div>
+      </div>
+      <div class="quiz__grade" v-if="the_end">
+        <img class="quiz__grade__img" :src="img" alt="!"><br>
+        <div class="quiz__grade__result"><b>{{ this.grade }} / {{ Questions.length }}</b></div>
+        <div class="quiz__grade__title"><b>{{ this.grade_title }}</b></div>
+        <div class="quiz__grade__text">{{ this.feedback }}</div>
+        <br>
       </div>
       <div class="quiz__btn">
-        <div v-if="!is_start">
+        <div v-if="!is_start && !the_end">
           <button class="quiz-link" @click="start">Начать тест</button>
         </div>
         <div v-if="!feedback && user_answer !== -1">
@@ -104,6 +117,9 @@ export default {
         </div>
         <div v-if="feedback && !the_end">
           <button class="quiz-link" @click="next">Далее</button>
+        </div>
+        <div v-if="feedback && the_end">
+          <button class="quiz-link" @click="reset">Пройти тест ещё раз</button>
         </div>
       </div>
     </div>
@@ -223,9 +239,22 @@ export default {
   }
 
   &__grade {
+    margin: 0 auto;
+
+    &__result {
+      text-align: center;
+      font-size: 24px;
+      padding-bottom: 10px;
+    }
+
+    &__title {
+    }
+
     &__img {
       max-width: 300px;
+      margin: 0 auto;
     }
+
   }
 
   &__btn {
