@@ -1,14 +1,15 @@
-<script setup>
-import Animate from './Animate.vue'
+<script>
+import Animate from '@/components/Animate.vue'
+import Main from '@/components/Quiz/Main.vue'
+
+export default {
+  components: { Main, Animate }
+}
 </script>
 
 <template>
   <Animate animationClass="animate__fadeInUp" class="test">
-    <h2 class="test__title">Тест <span class="accent-text-main-color">Какой вы гость?</span></h2>
-    <p>
-      Шуточный тест о&nbsp;том, насколько хорошо вы нас знаете. Не бойтесь, он не проверяет знания, и&nbsp;оценки за
-      него не ставятся. Это просто интерактивчик, который поможет узнать нас чуть лучше 🙂
-    </p>
+    <Main />
   </Animate>
 </template>
 
@@ -19,6 +20,24 @@ import Animate from './Animate.vue'
 
   &__title {
     margin-bottom: 1rem;
+  }
+}
+
+.quiz {
+
+  &-link {
+    width: 16rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 2.4rem;
+    font-size: 1.2rem;
+    background-color: var(--main-color);
   }
 }
 </style>
