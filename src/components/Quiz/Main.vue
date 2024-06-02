@@ -36,9 +36,9 @@ export default {
       } else {
         if (Questions[this.state].answers.includes(this.user_text_answer)) {
           this.grade++
-          this.feedback = Questions[this.state].feedback.true
+          this.feedback = Questions[this.state].feedback.is_true
         } else {
-          this.feedback = Questions[this.state].feedback.false
+          this.feedback = Questions[this.state].feedback.is_false
         }
       }
 
