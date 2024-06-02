@@ -11,6 +11,7 @@ export default {
     return {
       Questions: Questions,
       state: 0,
+      is_start: false,
       feedback: false,
       the_end: false,
       answers: [],
@@ -22,6 +23,9 @@ export default {
     }
   },
   methods: {
+    start() {
+      this.is_start = true
+    },
     answer() {
       this.feedback = Questions[this.state].answers[this.user_answer].feedback
       if (Questions[this.state].answers[this.user_answer].is_true) {
@@ -62,29 +66,43 @@ export default {
 <template>
   <div class="quiz">
     <div class="quiz__wrapper">
-      <div class="quiz__state"><span>{{ (state + 1) }}</span><span>/</span><span>{{ Questions.length }}</span></div>
-      <div class="quiz__text">{{ Questions[this.state].text }}</div>
-      <div class="quiz__answers">
-        <div class="quiz__answer" v-for="(answer, index) in Questions[this.state].answers">
-          <label>
-            <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed">
-            {{ answer.text }}
+      <div v-if="!is_start" class="quiz__introduction">
+        <div class="quiz__state"><span></span><span>Тест</span></div>
+        <div v-if="!is_start" class="quiz__introduction__title">
+          Какой вы гость?
+        </div>
+        <div v-if="!is_start" class="quiz__introduction__text">
+          Шуточный тест о&nbsp;том, насколько хорошо вы нас знаете. Не бойтесь, он не проверяет знания, и&nbsp;оценки за
+          него не ставятся. Это просто интерактивчик, который поможет узнать нас чуть лучше 🙂
+        </div>
+      </div>
+      <div v-if="is_start">
+        <div class="quiz__state"><span>{{ (state + 1) }}</span><span>/</span><span>{{ Questions.length }}</span></div>
+        <div class="quiz__text">{{ Questions[this.state].text }}</div>
+        <div class="quiz__answers">
+          <div class="quiz__answer" v-for="(answer, index) in Questions[this.state].answers">
+            <label>
+              <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed">
+              {{ answer.text }}
+            </label>
             <div class="quiz__answer__feedback" v-if="this.user_answer === index && feedback">
               {{ answer.feedback }}
             </div>
-          </label>
+          </div>
         </div>
-      </div>
-      <div class="quiz__grade" v-if="the_end">
-        <img class="quiz__img_grade" :src="img" alt="!">
-        <p><b>{{ this.grade }} из {{ Questions.length }}&nbsp;&nbsp;&nbsp;&nbsp;{{ this.grade_title }}</b></p>
+        <div class="quiz__grade" v-if="the_end">
+          <img class="quiz__grade__img" :src="img" alt="!">
+          <p><b>{{ this.grade }} из {{ Questions.length }}&nbsp;&nbsp;&nbsp;&nbsp;{{ this.grade_title }}</b></p>
+        </div>
       </div>
       <div class="quiz__btn">
-        <div v-if="!feedback && user_answer !== -1" class="form__map">
+        <div v-if="!is_start">
+          <button class="quiz-link" @click="start">Начать тест</button>
+        </div>
+        <div v-if="!feedback && user_answer !== -1">
           <button class="quiz-link" @click="answer">Ответить</button>
         </div>
-
-        <div v-if="feedback && !the_end" class="form__map">
+        <div v-if="feedback && !the_end">
           <button class="quiz-link" @click="next">Далее</button>
         </div>
       </div>
@@ -96,14 +114,29 @@ export default {
 .quiz {
   padding: 0 10%;
 
-  &__wrapper {
-    font-family: 'TildaSans', Arial, sans-serif;
+  &__introduction {
+    text-align: center;
 
+    &__title {
+      margin-bottom: 20px;
+      font-size: 28px;
+      line-height: 1.17;
+      font-weight: 600;
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 300;
+    }
+  }
+
+  &__wrapper {
     background-color: #ffffff;
     border-width: 1px;
     border-color: #9c9c9c;
     //border-radius: 30px;
-    padding: 45px 45px 65px;
+    padding: 45px 45px 45px;
   }
 
   &__state {
@@ -129,7 +162,6 @@ export default {
   }
 
   &__answers {
-
   }
 
   &__answer {
@@ -140,6 +172,18 @@ export default {
       opacity: .8;
       font-size: 14px;
     }
+  }
+
+  &__grade {
+    &__img {
+      max-width: 300px;
+    }
+  }
+
+  &__btn {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
   }
 
 }
