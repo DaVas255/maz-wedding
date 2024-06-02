@@ -82,7 +82,8 @@ export default {
         <div class="quiz__answers">
           <div class="quiz__answer" v-for="(answer, index) in Questions[this.state].answers">
             <label>
-              <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed">
+              <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed"
+                     :disabled="feedback">
               {{ answer.text }}
             </label>
             <div class="quiz__answer__feedback" v-if="this.user_answer === index && feedback">
@@ -171,6 +172,54 @@ export default {
       padding-left: 30px;
       opacity: .8;
       font-size: 14px;
+    }
+
+    input[type='radio'],
+    label {
+      cursor: pointer;
+    }
+
+    $size: 18px;
+
+    input[type='radio'] {
+      top: 2px;
+      position: relative;
+      height: $size;
+      width: $size;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+    }
+
+    input[type='radio']::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 1px solid #8aaf7a;
+    }
+
+    input[type='radio']:checked::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: $size / 2;
+      height: $size / 2;
+      border-radius: 50%;
+      background-color: #8aaf7a;
+      transform: translate(-50%, -50%);
+      visibility: visible;
+    }
+
+    input[type='radio']:disabled {
+      opacity: .3;
     }
   }
 
