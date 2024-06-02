@@ -8,7 +8,8 @@ export default {
   data() {
     return {
       users: Users,
-      user: 'Катя',
+      userList: [],
+      user: '',
       number: -1,
       tables: [
         { x: 0.5, y: 60.5 },
@@ -23,18 +24,26 @@ export default {
     }
   },
   methods: {
+    loadUsers() {
+      for (let i = 0; i < this.users.length; i++) {
+        this.userList = this.userList.concat(this.users[i])
+      }
+    },
     load() {
-      console.log(this.users.length)
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].includes(this.user)) {
           this.number = i
         }
       }
-      console.log('start ' + this.number)
+    },
+    loadTmp(item) {
+      this.user = item
+      this.load()
     }
   },
   mounted() {
     this.load()
+    this.loadUsers()
   }
 }
 </script>
@@ -50,14 +59,19 @@ export default {
     <p class="tables__text">
       Найдите и&nbsp;кликните на свое имя в&nbsp;списке ниже, чтобы узнать номер своего столика.
     </p>
-    <a href="#">1</a><br>
-    <div class="tables__table">
+    <div v-if="!user" class="tables__users">
+      <div v-for="(userGroup, index) in users" class="tables__title tables__table_block">
+        <h2>Столик {{ (index + 1) }}</h2>
+        <div v-for="item in userGroup">
+          <a @click="loadTmp(item)" class="tables__users__user">{{ item }}</a>
+        </div>
+      </div>
+    </div>
+    <div v-if="user" class="tables__table">
       <svg width="170" height="350" viewBox="0 0 170 350" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="50.5" y="0.5" width="69" height="29" stroke="#8AAF7A" />
         <rect v-for="(item, index) in tables" :x="item.x" :y="item.y" width="69" height="49" stroke="#8AAF7A"
-              :fill="[number === index ? '#8AAF7A' : '']"
-              fill-opacity="0.4"
-        />
+              :fill="[number === index ? '#8AAF7A' : '']" fill-opacity="0.4" />
         <path
           d="M39.0078 94H34.3086V85.5273C34.3086 85.3711 34.3086 85.0859 34.3086 84.6719C34.3086 84.25 34.3125 83.7852 34.3203 83.2773C34.3359 82.7695 34.3555 82.3125 34.3789 81.9062C34.1758 82.1484 33.9844 82.3555 33.8047 82.5273C33.6328 82.6992 33.4648 82.8594 33.3008 83.0078L31.3555 84.6133L28.9531 81.6602L34.8359 76.8672H39.0078V94Z"
           fill="#8AAF7A" />
@@ -93,6 +107,25 @@ export default {
 
   &__title {
     margin-bottom: 1rem;
+  }
+
+  &__users {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &__user {
+      border-bottom: dashed #8aaf7a 1px;
+    }
+    &__user:hover {
+      border-bottom: solid #8aaf7a 1px;
+      cursor: pointer;
+    }
+  }
+
+  &__table_block {
+    width: 50%;
+    padding-bottom: 10px;
   }
 
   &__text {
