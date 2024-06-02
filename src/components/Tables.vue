@@ -61,13 +61,13 @@ export default {
     </p>
     <div v-if="!user" class="tables__users">
       <div v-for="(userGroup, index) in users" class="tables__table_block">
-        <h2 class="tables__table_name">Столик {{ (index + 1) }}</h2>
+        <h2 class="tables__table_name">{{ (index + 1) }}</h2>
         <div v-for="item in userGroup">
-          <a @click="loadTmp(item)" class="tables__users__user">{{ item }}</a>
+          <a href="#table-position" @click="loadTmp(item)" class="tables__users__user">{{ item }}</a>
         </div>
       </div>
     </div>
-    <div v-if="user" class="tables__table">
+    <div id="table-position" v-if="user" class="tables__table">
       <svg width="170" height="350" viewBox="0 0 170 350" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="50.5" y="0.5" width="69" height="29" stroke="#8AAF7A" />
         <rect v-for="(item, index) in tables" :x="item.x" :y="item.y" width="69" height="49" stroke="#8AAF7A"
@@ -110,16 +110,22 @@ export default {
   }
 
   &__table_name {
+    font-size: 36px;
     color: #8aaf7a;
+    margin-bottom: 13px;
+    font-weight: bold;
   }
 
   &__users {
+    padding-top: 5px;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     font-size: 14px;
 
+
     &__user {
+      text-decoration: none;
       border-bottom: dashed #8aaf7a 1px;
     }
 
@@ -138,7 +144,7 @@ export default {
   }
 
   &__table_block:nth-child(2n) {
-    border-left: #8aaf7a solid 1px;
+    //border-left: #8aaf7a solid 1px;
     padding-left: 10px;
   }
 
