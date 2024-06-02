@@ -31,13 +31,13 @@ export default {
       if (Questions[this.state].answers[this.user_answer].is_true) {
         this.grade++
       }
-      console.log(this.user_answer, this.feedback)
     },
     next() {
       if ((this.state + 1) < Questions.length) {
         ++this.state
         this.feedback = false
         this.Processed = false
+        this.user_answer = -1
       } else {
         this.the_end = true
         if (this.grade > 8) {
@@ -82,8 +82,7 @@ export default {
         <div class="quiz__answers">
           <div class="quiz__answer" v-for="(answer, index) in Questions[this.state].answers">
             <label>
-              <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="Processed"
-                     :disabled="feedback">
+              <input v-model="user_answer" name="answers" type="radio" :value="index" :checked="this.Processed">
               {{ answer.text }}
             </label>
             <div class="quiz__answer__feedback" v-if="this.user_answer === index && feedback">
